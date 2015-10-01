@@ -1,43 +1,35 @@
-#Front-end Job Interview Questions
-
-This file contains a number of front-end interview questions that can be used when vetting potential candidates. It is by no means recommended to use every single question here on the same candidate (that would take hours). Choosing a few items from this list should help you vet the intended skills you require.
-
-**Note:** Keep in mind that many of these questions are open-ended and could lead to interesting discussions that tell you more about the person's capabilities than a straight answer would.
-
-## Table of Contents
-
-  1. [General Questions](#general-questions)
-  1. [HTML Questions](#html-questions)
-  1. [CSS Questions](#css-questions)
-  1. [JS Questions](#js-questions)
-  1. [Testing Questions](#testing-questions)
-  1. [Performance Questions](#performance-questions)
-  1. [Network Questions](#network-questions)
-  1. [Coding Questions](#coding-questions)
-  1. [Fun Questions](#fun-questions)
-
-## Getting Involved
-
-  1. [Contributors](#contributors)
-  1. [How to Contribute](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/CONTRIBUTING.md)
-  1. [License](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/LICENSE.md)
+My answers:
 
 #### General Questions:
 
 * What did you learn yesterday/this week?
+  * I learned how to divide my JavaScript to be more modular, and scope a function within an object constructor to keep it private.
+  * I learned how to use a single "hook" for a write function as the location from which to build out new DOM nodes
 * What excites or interests you about coding?
+  * Coding has all the satisfaction of getting creating and generating a finished product that other art forms have, but it happens faster, which is addicting!
+  * Coding also has all the appeal of a complex puzzle that will have an answer; it reminds me of chemistry sometimes (another thing I enjoy); there are these big, thorny problems, but the pieces and the rules are always the same, so the possibility of solving the big thirny problem becomes real.  That's exciting and very satisfying.
 * What is a recent technical challenge you experienced and how did you solve it?
+  * I was setting up a new project and could not get my Sass files to compile.  I traced the error to my GUlpfile, but that wasn't the culprit.  I traced it back further to my npm install workflow and discovered that I had tried to install "gulp sass" instead of "gulp-sass".   
 * What UI, Security, Performance, SEO, Maintainability or Technology considerations do you make while building a web application or site?
+  * UI - avoid using color as the sole indicator of state, make sure text is large enough to be readable, avoid large blocks of dense text, less is often more, etc.
+  * SEO - make effective use of headings to take advantange of the crawlers, use keywords in body text, use alt tags on images, try to cultivate incoming links from reputable sites
 * Talk about your preferred development environment.
+  * I work on a Mac, using Sublime Text 2, the CLI, Gulp, and Chrome Dev Tools for basic HTML/CSS/Sass projects.  For more complex projects I use NodeJS for my simple server needs.  If I need to manipulate images or graphics I use Adobe Illustrator and Photoshop.
 * Which version control systems are you familiar with?
+  * Git (and GitHub)
 * Can you describe your workflow when you create a web page?
+  * I build my file structure first, with an index.html page and directories for js, CSS, and Sass.  If I am using libraries, they go in /deps directories inside the appropriate directory (ie, js/deps/jquery.js). I usually also set up a server.js and a Gulpfile.js from the start, along with a .gitignore and a README.md.
 * If you have 5 different stylesheets, how would you best integrate them into the site?
+  * Compile them as Sass partials and link that in the <head>, or, link them all in the correct order to maintain the cascade.  
 * Can you describe the difference between progressive enhancement and graceful degradation?
+  * Progressive enhancement is when all users get the standard website, but those users with browsers that support extras get extras - it's adding functionality to a baseline.  Graceful degradation is when the site is designed to include all the extras, but users on older browsers won't see the extras - it's removing functionality from the baseline.
 * How would you optimize a website's assets/resources?
+  * I would first check if images have been resized and compressed appropriately.  I would minify the HTML, CSS and JS files. 
 * How many resources will a browser download from a given domain at a time?
   * What are the exceptions?
 * Name 3 ways to decrease page load (perceived or actual load time).
 * If you jumped on a project and they used tabs and you used spaces, what would you do?
+  * I would adjust my Sublime Text settings to adapt to the project.
 * Describe how you would create a simple slideshow page.
 * If you could master one technology this year, what would it be?
 * Explain the importance of standards and standards bodies.
@@ -65,8 +57,11 @@ This file contains a number of front-end interview questions that can be used wh
 #### CSS Questions:
 
 * What is the difference between classes and ID's in CSS?
+  * A class may be used on more than one element on a page.  An ID may only be used once on a page.
 * What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+  * Resetting CSS zeroes out all the default padding, margins, etc.  Normalizing the CSS makes adjustments to the default padding etc so that the defaults match across browsers.  I usually choose to reset, because it gives me a clean slate for all styles, and removes the temptation to thing of heading rank as equivalent to text size.  I also don't mind wading through the inherited styles in Dev Tools.
 * Describe Floats and how they work.
+  * A float will cause the floated element to pop out of the default flow of the HTML page.  The remaining content will flow around the floated element, unless given a clear property.  Floats were originally intended to help text flow around images, but are more often used now to float page components in a layout, which can lead to some confusion, since blocky components don't flow as well as text when one or more of them is floated.
 * Describe z-index and how stacking context is formed.
 * Describe BFC(Block Formatting Context) and how it works.
 * What are the various clearing techniques and which is appropriate for what context?
@@ -78,9 +73,13 @@ This file contains a number of front-end interview questions that can be used wh
 * What are the different ways to visually hide content (and make it available only for screen readers)?
 * Have you ever used a grid system, and if so, what do you prefer?
 * Have you used or implemented media queries or mobile specific layouts/CSS?
+  * Yes.  I try to design all projects using a mobile-first approach.  If a media query is needed, I use them to adjust the layout for progressively larger viewports.
 * Are you familiar with styling SVG?
+  * Somewhat.  I have used them in projects, and I understand the principles.
 * How do you optimize your webpages for print?
+  * I create a media="print" CSS sheet that strips out background color, large graphics, unneccessary images, etc, and resizes text to fill the width of the page and be a readable size.  Often this means increasing the body text size and reducing heading sizes.
 * What are some of the "gotchas" for writing efficient CSS?
+  * Don't overspecify your selectors, so you don't trap yourself in a specificity war down the road.  Use a naming convention and follow it.
 * What are the advantages/disadvantages of using CSS preprocessors?
   * Describe what you like and dislike about the CSS preprocessors you have used.
 * How would you implement a web design comp that uses non-standard fonts?
@@ -89,8 +88,11 @@ This file contains a number of front-end interview questions that can be used wh
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 * What does ```* { box-sizing: border-box; }``` do? What are its advantages?
 * List as many values for the display property that you can remember.
+  * none, hidden, inline, block, inline-block
 * What's the difference between inline and inline-block?
+  * 'inline' is what text does - it lines up on the line until the line needs to wrap, and then it wraps.  You cannot put height, padding, etc on an inline element.  'inline-block' elements will wrap like inline elements, but you can put height, padding etc on them and dictate their size.
 * What's the difference between a relative, fixed, absolute and statically positioned element?
+  * Static positioning is the default.  Relative positioning will change the position of an element relative to its default position in the page.  Absolute positioning will put an element in a location relative to the window OR a parent element that has relative positioning.  Fixed positioning will hold an element in a location relative to the window regardless of scrolling - it will 'hover' over all the other content and move when the user moves the scrollbar.
 * The 'C' in CSS stands for Cascading.  How is priority determined in assigning styles (a few examples)?  How can you use this system to your advantage?
 * What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 * Have you played around with the new CSS Flexbox or Grid specs?
@@ -101,6 +103,7 @@ This file contains a number of front-end interview questions that can be used wh
 #### JS Questions:
 
 * Explain event delegation
+  * Event delegation is needed when an event will be triggered by a dynamically generated DOM element.  The event is then delegated to a parent element that will exist upon page load.
 * Explain how `this` works in JavaScript
 * Explain how prototypal inheritance works
 * What do you think of AMD vs CommonJS?
@@ -134,7 +137,19 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 * Why is it called a Ternary expression, what does the word "Ternary" indicate?
 * What is `"use strict";`? what are the advantages and disadvantages to using it?
+  * It prevents the creation of glbal variables, which is good because it can keep you from accidentally contaminating the global namespace, but if you need to create a global variable it will get in your way.
 * Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`
+  * ```for (var i = 0; i < 100; i++) {
+        if (i % 3 === 0 && i % 5 !== 0) {
+          console.log('Fizz');
+        } else if (i % 5 === 0 && i % 3 !== 0) {
+          console.log('Buzz')
+        } else if (i % 3 === 0 && i % 5 === 0) {
+          console.log('FizzBuzz');
+        } else {
+          console.log(i);
+        }
+      } ```
 * Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 * Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
 * Explain what a single page app is and how to make one SEO-friendly.
@@ -184,6 +199,7 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 ```javascript
 var foo = 10 + '20';
 ```
+  * 30
 
 *Question: How would you make this work?*
 ```javascript
@@ -239,12 +255,6 @@ console.log('three');
 * What's a cool project that you've recently worked on?
 * What are some things you like about the developer tools you use?
 * Do you have any pet projects? What kind?
+  * I have a nature blog that I'm building - it gets me outside and it's never truly finished, so I always have something fun to play with
 * What's your favorite feature of Internet Explorer?
 * How do you like your coffee?
-
-
-#### Contributors:
-
-This document started in 2009 as a collaboration of [@paul_irish](https://twitter.com/paul_irish) [@bentruyman](https://twitter.com/bentruyman) [@cowboy](https://twitter.com/cowboy) [@ajpiano](https://twitter.com/ajpiano)  [@SlexAxton](https://twitter.com/slexaxton) [@boazsender](https://twitter.com/boazsender) [@miketaylr](https://twitter.com/miketaylr) [@vladikoff](https://twitter.com/vladikoff) [@gf3](https://twitter.com/gf3) [@jon_neal](https://twitter.com/jon_neal) [@sambreed](https://twitter.com/sambreed) and [@iansym](https://twitter.com/iansym).
-
-It has since received contributions from over [100 developers](https://github.com/h5bp/Front-end-Developer-Interview-Questions/graphs/contributors).

@@ -20,12 +20,16 @@ My answers:
 * Can you describe your workflow when you create a web page?
   * I build my file structure first, with an index.html page and directories for js, CSS, and Sass.  If I am using libraries, they go in /deps directories inside the appropriate directory (ie, js/deps/jquery.js). I usually also set up a server.js and a Gulpfile.js from the start, along with a .gitignore and a README.md.
 * If you have 5 different stylesheets, how would you best integrate them into the site?
+  * Compile them as Sass partials and link that in the <head>, or, link them all in the correct order to maintain the cascade.  
 * Can you describe the difference between progressive enhancement and graceful degradation?
+  * Progressive enhancement is when all users get the standard website, but those users with browsers that support extras get extras - it's adding functionality to a baseline.  Graceful degradation is when the site is designed to include all the extras, but users on older browsers won't see the extras - it's removing functionality from the baseline.
 * How would you optimize a website's assets/resources?
+  * I would first check if images have been resized and compressed appropriately.  I would minify the HTML, CSS and JS files. 
 * How many resources will a browser download from a given domain at a time?
   * What are the exceptions?
 * Name 3 ways to decrease page load (perceived or actual load time).
 * If you jumped on a project and they used tabs and you used spaces, what would you do?
+  * I would adjust my Sublime Text settings to adapt to the project.
 * Describe how you would create a simple slideshow page.
 * If you could master one technology this year, what would it be?
 * Explain the importance of standards and standards bodies.
@@ -53,8 +57,11 @@ My answers:
 #### CSS Questions:
 
 * What is the difference between classes and ID's in CSS?
+  * A class may be used on more than one element on a page.  An ID may only be used once on a page.
 * What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+  * Resetting CSS zeroes out all the default padding, margins, etc.  Normalizing the CSS makes adjustments to the default padding etc so that the defaults match across browsers.  I usually choose to reset, because it gives me a clean slate for all styles, and removes the temptation to thing of heading rank as equivalent to text size.  I also don't mind wading through the inherited styles in Dev Tools.
 * Describe Floats and how they work.
+  * A float will cause the floated element to pop out of the default flow of the HTML page.  The remaining content will flow around the floated element, unless given a clear property.  Floats were originally intended to help text flow around images, but are more often used now to float page components in a layout, which can lead to some confusion, since blocky components don't flow as well as text when one or more of them is floated.
 * Describe z-index and how stacking context is formed.
 * Describe BFC(Block Formatting Context) and how it works.
 * What are the various clearing techniques and which is appropriate for what context?
@@ -66,9 +73,13 @@ My answers:
 * What are the different ways to visually hide content (and make it available only for screen readers)?
 * Have you ever used a grid system, and if so, what do you prefer?
 * Have you used or implemented media queries or mobile specific layouts/CSS?
+  * Yes.  I try to design all projects using a mobile-first approach.  If a media query is needed, I use them to adjust the layout for progressively larger viewports.
 * Are you familiar with styling SVG?
+  * Somewhat.  I have used them in projects, and I understand the principles.
 * How do you optimize your webpages for print?
+  * I create a media="print" CSS sheet that strips out background color, large graphics, unneccessary images, etc, and resizes text to fill the width of the page and be a readable size.  Often this means increasing the body text size and reducing heading sizes.
 * What are some of the "gotchas" for writing efficient CSS?
+  * Don't overspecify your selectors, so you don't trap yourself in a specificity war down the road.  Use a naming convention and follow it.
 * What are the advantages/disadvantages of using CSS preprocessors?
   * Describe what you like and dislike about the CSS preprocessors you have used.
 * How would you implement a web design comp that uses non-standard fonts?
@@ -77,8 +88,11 @@ My answers:
 * Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models.
 * What does ```* { box-sizing: border-box; }``` do? What are its advantages?
 * List as many values for the display property that you can remember.
+  * none, hidden, inline, block, inline-block
 * What's the difference between inline and inline-block?
+  * 'inline' is what text does - it lines up on the line until the line needs to wrap, and then it wraps.  You cannot put height, padding, etc on an inline element.  'inline-block' elements will wrap like inline elements, but you can put height, padding etc on them and dictate their size.
 * What's the difference between a relative, fixed, absolute and statically positioned element?
+  * Static positioning is the default.  Relative positioning will change the position of an element relative to its default position in the page.  Absolute positioning will put an element in a location relative to the window OR a parent element that has relative positioning.  Fixed positioning will hold an element in a location relative to the window regardless of scrolling - it will 'hover' over all the other content and move when the user moves the scrollbar.
 * The 'C' in CSS stands for Cascading.  How is priority determined in assigning styles (a few examples)?  How can you use this system to your advantage?
 * What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 * Have you played around with the new CSS Flexbox or Grid specs?
@@ -89,6 +103,7 @@ My answers:
 #### JS Questions:
 
 * Explain event delegation
+  * Event delegation is needed when an event will be triggered by a dynamically generated DOM element.  The event is then delegated to a parent element that will exist upon page load.
 * Explain how `this` works in JavaScript
 * Explain how prototypal inheritance works
 * What do you think of AMD vs CommonJS?
@@ -122,7 +137,9 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 * Why is it called a Ternary expression, what does the word "Ternary" indicate?
 * What is `"use strict";`? what are the advantages and disadvantages to using it?
+  * It prevents the creation of glbal variables, which is good because it can keep you from accidentally contaminating the global namespace, but if you need to create a global variable it will get in your way.
 * Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`
+  * ``` ```
 * Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 * Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
 * Explain what a single page app is and how to make one SEO-friendly.

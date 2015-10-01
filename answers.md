@@ -139,7 +139,17 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 * What is `"use strict";`? what are the advantages and disadvantages to using it?
   * It prevents the creation of glbal variables, which is good because it can keep you from accidentally contaminating the global namespace, but if you need to create a global variable it will get in your way.
 * Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`
-  * ``` ```
+  * ```for (var i = 0; i < 100; i++) {
+        if (i % 3 === 0 && i % 5 !== 0) {
+          console.log('Fizz');
+        } else if (i % 5 === 0 && i % 3 !== 0) {
+          console.log('Buzz')
+        } else if (i % 3 === 0 && i % 5 === 0) {
+          console.log('FizzBuzz');
+        } else {
+          console.log(i);
+        }
+      } ```
 * Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 * Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
 * Explain what a single page app is and how to make one SEO-friendly.
@@ -189,6 +199,7 @@ duplicate([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 ```javascript
 var foo = 10 + '20';
 ```
+  * 30
 
 *Question: How would you make this work?*
 ```javascript
@@ -244,5 +255,6 @@ console.log('three');
 * What's a cool project that you've recently worked on?
 * What are some things you like about the developer tools you use?
 * Do you have any pet projects? What kind?
+  * I have a nature blog that I'm building - it gets me outside and it's never truly finished, so I always have something fun to play with
 * What's your favorite feature of Internet Explorer?
 * How do you like your coffee?
